@@ -1,0 +1,62 @@
+<?php
+/**
+* 前台首页
+*/
+class IndexAction extends CommonAction
+{ 
+	Public function index(){
+		$this->display('index');
+	}
+     
+         public function show(){
+         
+         if($_GET['nextrow'])
+         {
+         $pagestart=$_GET['nextrow']*12;
+    	 }
+        else{
+    		$pagestart=0;
+    	}
+    	$data=M('news')->limit($pagestart,12)->field('title,url,var1,pubtime')->order('id desc')->select();
+    	echo json_encode( $data );
+          
+        $this->display();
+     }
+     public function answer()
+     {
+     $message=$_GET["info"];
+     $condition["title"] = array("like", "%".$message."%");
+     $data=M('news')->where($condition)->find();
+     if($data==0)
+     $json='{"text":"无相关文章"}';
+     else
+     {
+     $text=$data["title"];
+     $json = '{"text":"'.$text.'"}'; 
+     }
+     echo $json;
+     
+     }
+     
+     
+     
+     
+     	Public function pushall()
+  {	$title="111111";
+	$content="111111";
+      include('jpush.php');
+	  $n_title   =  $title;
+	  $n_content =  $content;	
+      $appkeys='f5a07b3bd8ee8c51ed66472c';
+      $masterSecret='98fc036e5f3ecd9fc20cdc4f';
+      $sendno = 4;
+      $receiver_value = '';			
+			$platform = 'android,ios' ;
+			$msg_content = json_encode(array('n_builder_id'=>0, 'n_title'=>$n_title, 'n_content'=>$n_content));        
+			$obj = new jpush($masterSecret,$appkeys);			 
+			$res = $obj->send($sendno, 4, $receiver_value, 1, $msg_content, $platform);				
+			print_r($res);
+			exit();	
+}
+
+}
