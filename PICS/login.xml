@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/test_bg2"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="64dp"
+            android:layout_height="69dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/logo" />
+    </RelativeLayout>
+
+    <AbsoluteLayout
+        android:id="@+id/AbsoluteLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.5" >
+
+        <CheckBox
+            android:id="@+id/loginRememberMeCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="9dp"
+            android:layout_y="234dp"
+            android:text="@string/loginRememberMe" />
+
+        <EditText
+            android:id="@+id/loginUserNameEdit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_x="0dp"
+            android:layout_y="55dp"
+            android:background="@drawable/shape"
+            android:ems="10"
+            android:hint="请输入用户名" />
+
+        <EditText
+            android:id="@+id/loginPasswordEdit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_x="0dp"
+            android:layout_y="135dp"
+            android:background="@drawable/shape"
+            android:ems="10"
+            android:hint="请输入密码"
+            android:nextFocusDown="@+id/loginSubmit"
+            android:nextFocusRight="@+id/loginSubmit"
+            android:password="true" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="15dp"
+            android:layout_y="35dp"
+            android:text="@string/loginUserNameLabel"
+            android:textSize="18px" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="15dp"
+            android:layout_y="115dp"
+            android:text="@string/loginPasswordLabel"
+            android:textSize="18px" />
+
+    </AbsoluteLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/loginSubmit"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/loginSubmit"
+            android:textSize="24px" />
+
+        <Button
+            android:id="@+id/loginRegister"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/loginSubmit"
+            android:layout_alignBottom="@+id/loginSubmit"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/loginSubmit"
+            android:text="@string/loginRegister"
+            android:textSize="24px" />
+    </RelativeLayout>
+
+</LinearLayout>
