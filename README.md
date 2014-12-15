@@ -1,4 +1,3 @@
 HITNEWS
 =======
-这是后台推送模块的代码部分，是一个完整的过程文件可以学习
-Jpush的东西。
+This is the Final Version of zhe software
